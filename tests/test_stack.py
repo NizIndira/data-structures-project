@@ -32,3 +32,17 @@ class StackTestCase(TestCase):
 
         with self.assertRaises(AttributeError):
             self.stack.top.next_node.next_node.next_node.data
+
+    def test_pop(self):
+        self.stack.push('data1')
+        data = self.stack.pop()
+
+        self.assertIsNone(self.stack.top)
+        self.assertEquals(data, 'data1')
+
+        self.stack.push('data1')
+        self.stack.push('data2')
+        data = self.stack.pop()
+
+        self.assertEquals(self.stack.top.data, 'data1')
+        self.assertEquals(data, 'data2')
