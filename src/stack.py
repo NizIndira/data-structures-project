@@ -38,3 +38,11 @@ class Stack:
         data = self.top.data
         self.top = self.top.next_node
         return data
+
+    def __str__(self):
+        node = self.top
+        self_str = ''
+        while node is not None:
+            self_str += f'{node.data}\n'
+            node = node.next_node
+        return self_str[:-1]
